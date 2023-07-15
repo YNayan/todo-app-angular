@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add Todos</h1>
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <mat-form-field appearance="outline">
+            <mat-label>Heading for the Todo</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field style="width: 500px;" appearance="outline">
+            <mat-label>Add your Todos here</mat-label>
+            <textarea matInput rows="2" formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-label>Status :</mat-label>
+        <mat-radio-group aria-label="example-radio-group" formControlName="status">
+            <mat-radio-button class="example-radio-button" *ngFor="let status of statusList" [value]="status">
+                {{status}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div mat-dialog-actions class="actions">
+        <button mat-raised-button color="accent" type="submit">Submit</button>
+        <button mat-raised-button color="primary" (click)="onCloseDialog()"> close</button>
+    </div>
+</form>
