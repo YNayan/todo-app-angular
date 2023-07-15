@@ -6,8 +6,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
     imports: [
@@ -19,7 +21,8 @@ import {MatRadioModule} from '@angular/material/radio';
         MatInputModule,
         MatFormFieldModule,
         MatRadioModule,
-        
+        MatCardModule,
+        MatListModule
     ],
     exports: [
         MatToolbarModule,
@@ -28,7 +31,9 @@ import {MatRadioModule} from '@angular/material/radio';
         MatDialogModule,
         MatInputModule,
         MatFormFieldModule,
-        MatRadioModule
+        MatRadioModule,
+        MatCardModule,
+        MatListModule
     ]
 })
 export class MaterialModule{}
