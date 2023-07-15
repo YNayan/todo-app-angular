@@ -32,7 +32,8 @@ export class AddEditTodosComponent {
       this.api.addTodos(this.todoForm.value).subscribe(
         res => {
           console.log(" it  is submitted");
-          
+          this.api.isChanged.next(true);
+          this.dialogRef.close()
         }
       );
 

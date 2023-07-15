@@ -1,12 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Todo } from "../Model/todo.model";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
+
+    isChanged = new Subject<boolean>();
 
     private base_url: string= "https://ynayan-cautious-space-broccoli-xq5wxrjj6qghvjr-5000.preview.app.github.dev/todos";
 
@@ -24,7 +26,7 @@ export class ApiService {
         return this.http.post<Todo>(this.base_url,todo);
     }
 
-    deleteTodos(id: string): Observable<any>{
+    deleteTodos(id: any): Observable<any>{
         return this.http.delete(`${this.base_url}/${id}`);
     }
 

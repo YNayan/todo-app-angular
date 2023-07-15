@@ -1,5 +1,5 @@
 export interface Todo{
-    id?: idObj;
+    _id: idObj;
     title: string,
     description: string,
     status: string

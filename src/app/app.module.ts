@@ -10,6 +10,7 @@ import { AddEditTodosComponent } from './navbar/add-edit-todos/add-edit-todos.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TodolistComponent } from './todolist/todolist.component';
+import { TodoComponent } from './todo/todo.component';
 
 
 
@@ -18,7 +19,8 @@ import { TodolistComponent } from './todolist/todolist.component';
     AppComponent,
     NavbarComponent,
     AddEditTodosComponent,
-    TodolistComponent
+    TodolistComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
+import { Todo } from '../Model/todo.model';
 
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.scss']
 })
-export class TodolistComponent {
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
+export class TodolistComponent implements OnInit {
+
+  todoList: Todo[] = []
+
+  constructor(private api: ApiService) { }
+
+  ngOnInit(): void {
+    this.getTodos();
+
+    this.api.isChanged.subscribe(
+      isdeleted => {
+        this.getTodos();
+      }
+    )
+  }
+
+  getTodos() {
+    this.api.getTodos().subscribe(
+      (todoList: Todo[]) => {
+        this.todoList = todoList;
+      }
+    );
+  }
+
+
 }
